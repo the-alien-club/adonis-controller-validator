@@ -5,9 +5,7 @@
 import { analyzeController } from "./src/parsers/controller-analyzer.js";
 
 // Adjust path based on where script is run from
-const baseDir = process.cwd().includes("sandbox/adonis-controller-validator")
-    ? "../.."
-    : ".";
+const baseDir = process.cwd().includes("sandbox/adonis-controller-validator") ? "../.." : ".";
 const projectPath = `${baseDir}/web-app/packages/backend`;
 const controllerPath = `${baseDir}/web-app/packages/backend/app/controllers/collections_controller.ts`;
 

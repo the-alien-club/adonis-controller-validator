@@ -20,6 +20,6 @@ export { groupRoutesByController, parseRoutes } from "./parsers/route-parser.js"
 // Phase 3: Controller analyzer
 export { analyzeController } from "./parsers/controller-analyzer.js";
 
-// These exports will be implemented in subsequent phases:
-// export { validateMethod } from "./validators/index.js"
-// export { runValidation } from "./runner.js"
+// Phase 4: Validation rules
+export { validateMethod } from "./validators/index.js";
+export { runValidation, type RunResult } from "./runner.js";
