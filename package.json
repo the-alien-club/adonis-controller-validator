@@ -1,6 +1,6 @@
 {
     "name": "@alias3/adonis-controller-validator",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Static analysis tool for AdonisJS controller pattern validation",
     "type": "module",
     "main": "./dist/src/index.js",
@@ -18,7 +18,14 @@
         "prepublishOnly": "npm run build",
         "postversion": "npm run lint:fix && git add package.json && git commit --amend --no-edit"
     },
-    "keywords": ["adonisjs", "validator", "static-analysis", "typescript", "ast", "linting"],
+    "keywords": [
+        "adonisjs",
+        "validator",
+        "static-analysis",
+        "typescript",
+        "ast",
+        "linting"
+    ],
     "author": "Alien Intelligence",
     "license": "MIT",
     "dependencies": {
@@ -44,7 +51,11 @@
     "engines": {
         "node": ">=20.0.0"
     },
-    "files": ["dist", "README.md", "stubs"],
+    "files": [
+        "dist",
+        "README.md",
+        "stubs"
+    ],
     "exports": {
         ".": "./dist/src/index.js",
         "./commands": "./dist/src/commands/index.js",
@@ -52,6 +63,8 @@
     },
     "adonisjs": {
         "types": "@alias3/adonis-controller-validator",
-        "commands": ["@alias3/adonis-controller-validator/commands"]
+        "commands": [
+            "@alias3/adonis-controller-validator/commands"
+        ]
     }
 }
