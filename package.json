@@ -3,10 +3,10 @@
     "version": "0.1.1",
     "description": "Static analysis tool for AdonisJS controller pattern validation",
     "type": "module",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/src/index.js",
+    "types": "./dist/src/index.d.ts",
     "bin": {
-        "adonis-validator": "./dist/cli.js"
+        "adonis-validator": "./dist/src/cli.js"
     },
     "scripts": {
         "build": "tsc",
@@ -43,11 +43,11 @@
     "engines": {
         "node": ">=20.0.0"
     },
-    "files": ["dist", "README.md", "configure.js", "configure.d.ts", "stubs"],
+    "files": ["dist", "README.md", "stubs"],
     "exports": {
-        ".": "./dist/index.js",
-        "./commands": "./dist/commands/index.js",
-        "./types": "./dist/types.js"
+        ".": "./dist/src/index.js",
+        "./commands": "./dist/src/commands/index.js",
+        "./types": "./dist/src/types.js"
     },
     "adonisjs": {
         "types": "@alien/adonis-controller-validator",
