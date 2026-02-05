@@ -1,0 +1,53 @@
+# GitLab CI/CD for AdonisJS Controller Validator
+# Stages: test, publish
+
+# Include GitLab security templates
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+variables:
+  # Package name for NPM publishing
+  NPM_PACKAGE_NAME: "@alien/adonis-controller-validator"
+
+stages:
+  - test
+  - publish
+
+# ============================================================
+# Stage 1: Test
+# ============================================================
+
+run-tests:
+  stage: test
+  image: node:22-slim
+  script:
+    - .ci_scripts/run-tests.sh
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
+
+# ============================================================
+# Stage 2: Build and Publish Package
+# ============================================================
+
+build-publish-package:
+  stage: publish
+  image: node:22-slim
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "staging" || $CI_COMMIT_BRANCH == "dev"'
+      changes:
+        - src/**/*.ts
+        - package.json
+        - package-lock.json
+        - tsconfig.json
+        - .gitlab-ci.yml
+        - .ci_scripts/**/*.sh
+  script:
+    - .ci_scripts/build-publish-package.sh
+  artifacts:
+    paths:
+      - dist/
+      - "*.tgz"
+    expire_in: 1 week
+  when: on_success
