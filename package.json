@@ -1,5 +1,5 @@
 {
-    "name": "@anthropic/adonis-controller-validator",
+    "name": "@alien/adonis-controller-validator",
     "version": "0.1.0",
     "description": "Static analysis tool for AdonisJS controller pattern validation",
     "type": "module",
@@ -50,7 +50,7 @@
         "./types": "./dist/types.js"
     },
     "adonisjs": {
-        "types": "@anthropic/adonis-controller-validator",
-        "commands": ["@anthropic/adonis-controller-validator/commands"]
+        "types": "@alien/adonis-controller-validator",
+        "commands": ["@alien/adonis-controller-validator/commands"]
     }
 }
