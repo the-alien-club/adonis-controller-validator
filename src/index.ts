@@ -14,8 +14,10 @@
 
 export * from "./types.js";
 
+// Phase 2: Route parser
+export { groupRoutesByController, parseRoutes } from "./parsers/route-parser.js";
+
 // These exports will be implemented in subsequent phases:
-// export { parseRoutes } from "./parsers/route-parser.js"
 // export { analyzeController } from "./parsers/controller-analyzer.js"
 // export { validateMethod } from "./validators/index.js"
 // export { runValidation } from "./runner.js"
