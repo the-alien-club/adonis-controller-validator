@@ -15,16 +15,10 @@
         "test:coverage": "vitest --coverage",
         "lint": "biome check .",
         "lint:fix": "biome check . --write",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "postversion": "npm run lint:fix && git add package.json && git commit --amend --no-edit"
     },
-    "keywords": [
-        "adonisjs",
-        "validator",
-        "static-analysis",
-        "typescript",
-        "ast",
-        "linting"
-    ],
+    "keywords": ["adonisjs", "validator", "static-analysis", "typescript", "ast", "linting"],
     "author": "Alien Intelligence",
     "license": "MIT",
     "dependencies": {
@@ -50,11 +44,7 @@
     "engines": {
         "node": ">=20.0.0"
     },
-    "files": [
-        "dist",
-        "README.md",
-        "stubs"
-    ],
+    "files": ["dist", "README.md", "stubs"],
     "exports": {
         ".": "./dist/src/index.js",
         "./commands": "./dist/src/commands/index.js",
@@ -62,8 +52,6 @@
     },
     "adonisjs": {
         "types": "@alien/adonis-controller-validator",
-        "commands": [
-            "@alien/adonis-controller-validator/commands"
-        ]
+        "commands": ["@alien/adonis-controller-validator/commands"]
     }
 }
