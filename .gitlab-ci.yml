@@ -8,7 +8,7 @@ include:
 
 variables:
   # Package name for NPM publishing
-  NPM_PACKAGE_NAME: "@alien/adonis-controller-validator"
+  NPM_PACKAGE_NAME: "@alias3/adonis-controller-validator"
 
 stages:
   - test
