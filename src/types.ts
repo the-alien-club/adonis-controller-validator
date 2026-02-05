@@ -10,75 +10,75 @@
  */
 export interface RouteDefinition {
     /** HTTP method (get, post, patch, put, delete, any) */
-    method: HttpMethod
+    method: HttpMethod;
     /** Route path (e.g., "/datasets/:dataset_id") */
-    path: string
+    path: string;
     /** Controller name (e.g., "DatasetsController") */
-    controller: string
+    controller: string;
     /** Method name (e.g., "show") */
-    handler: string
+    handler: string;
     /** Line number in routes.ts */
-    line: number
+    line: number;
     /** Whether route has path parameters */
-    hasPathParams: boolean
+    hasPathParams: boolean;
     /** Extracted path parameter names */
-    pathParams: string[]
+    pathParams: string[];
 }
 
-export type HttpMethod = "get" | "post" | "patch" | "put" | "delete" | "any"
+export type HttpMethod = "get" | "post" | "patch" | "put" | "delete" | "any";
 
 /**
  * Represents a controller method analysis result
  */
 export interface MethodAnalysis {
     /** Controller class name */
-    controller: string
+    controller: string;
     /** Method name */
-    method: string
+    method: string;
     /** File path */
-    filePath: string
+    filePath: string;
     /** Line number */
-    line: number
+    line: number;
     /** Whether method uses request parameter */
-    usesRequest: boolean
+    usesRequest: boolean;
     /** Whether method uses params */
-    usesParams: boolean
+    usesParams: boolean;
     /** Whether validateUsing is called */
-    hasValidateUsing: boolean
+    hasValidateUsing: boolean;
     /** All return statements in the method */
-    returnStatements: ReturnStatement[]
+    returnStatements: ReturnStatement[];
 }
 
 export interface ReturnStatement {
     /** Line number */
-    line: number
+    line: number;
     /** Type of return */
-    type: "successResponse" | "errorResponse" | "other"
+    type: "successResponse" | "errorResponse" | "other";
     /** Whether successResponse has generic type */
-    hasGenericType?: boolean
+    hasGenericType?: boolean;
     /** Whether errorResponse uses AppErrors */
-    usesAppErrors?: boolean
+    usesAppErrors?: boolean;
     /** Raw text for debugging */
-    text: string
+    text: string;
 }
 
 /**
  * Validation result for a single method
  */
 export interface ValidationResult {
-    controller: string
-    method: string
-    filePath: string
-    line: number
-    violations: Violation[]
-    passed: boolean
+    controller: string;
+    method: string;
+    filePath: string;
+    line: number;
+    violations: Violation[];
+    passed: boolean;
 }
 
 export interface Violation {
-    rule: "validate-using" | "success-response-typed" | "error-response-app-errors"
-    message: string
-    line: number
-    severity: "error" | "warning"
+    rule: "validate-using" | "success-response-typed" | "error-response-app-errors";
+    message: string;
+    line: number;
+    severity: "error" | "warning";
 }
 
 /**
@@ -86,17 +86,17 @@ export interface Violation {
  */
 export interface ValidatorConfig {
     /** Path to routes file (default: "start/routes.ts") */
-    routesFile: string
+    routesFile: string;
     /** Path to controllers directory (default: "app/controllers") */
-    controllersDir: string
+    controllersDir: string;
     /** Methods to skip validation (format: "ControllerName.methodName") */
-    whitelist: string[]
+    whitelist: string[];
     /** Whether to fail on any violation */
-    strictMode: boolean
+    strictMode: boolean;
     /** Exit with error code on violations */
-    failOnError: boolean
+    failOnError: boolean;
     /** Custom AppErrors import path */
-    appErrorsPath: string
+    appErrorsPath: string;
 }
 
 export const DEFAULT_CONFIG: ValidatorConfig = {
@@ -106,4 +106,4 @@ export const DEFAULT_CONFIG: ValidatorConfig = {
     strictMode: true,
     failOnError: true,
     appErrorsPath: "#lib/errors",
-}
+};

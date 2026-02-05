@@ -12,7 +12,7 @@
  * ```
  */
 
-export * from "./types.js"
+export * from "./types.js";
 
 // These exports will be implemented in subsequent phases:
 // export { parseRoutes } from "./parsers/route-parser.js"
