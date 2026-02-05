@@ -1,0 +1,8 @@
+{
+  "routesFile": "start/routes.ts",
+  "controllersDir": "app/controllers",
+  "whitelist": [],
+  "strictMode": true,
+  "failOnError": true,
+  "appErrorsPath": "#lib/errors"
+}

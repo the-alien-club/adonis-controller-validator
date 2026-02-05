@@ -40,7 +40,22 @@ npx adonis-validator -v
 
 ### As AdonisJS Ace Command
 
-Register the command in your `adonisrc.ts`:
+**Option 1: Auto-configure (Recommended)**
+
+Run the configure command to automatically register:
+
+```bash
+node ace configure @anthropic/adonis-controller-validator
+```
+
+This will:
+- Auto-register the command in `adonisrc.ts`
+- Create default `adonis-validator.config.json`
+- Display setup instructions
+
+**Option 2: Manual registration**
+
+Alternatively, manually register in your `adonisrc.ts`:
 
 ```typescript
 {
@@ -51,7 +66,7 @@ Register the command in your `adonisrc.ts`:
 }
 ```
 
-Then run it as an Ace command:
+**Run the command:**
 
 ```bash
 node ace validate:controllers

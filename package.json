@@ -43,5 +43,14 @@
     "engines": {
         "node": ">=20.0.0"
     },
-    "files": ["dist", "README.md"]
+    "files": ["dist", "README.md", "configure.js", "configure.d.ts", "stubs"],
+    "exports": {
+        ".": "./dist/index.js",
+        "./commands": "./dist/commands/index.js",
+        "./types": "./dist/types.js"
+    },
+    "adonisjs": {
+        "types": "@anthropic/adonis-controller-validator",
+        "commands": ["@anthropic/adonis-controller-validator/commands"]
+    }
 }
