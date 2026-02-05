@@ -17,14 +17,7 @@
         "lint:fix": "biome check . --write",
         "prepublishOnly": "npm run build"
     },
-    "keywords": [
-        "adonisjs",
-        "validator",
-        "static-analysis",
-        "typescript",
-        "ast",
-        "linting"
-    ],
+    "keywords": ["adonisjs", "validator", "static-analysis", "typescript", "ast", "linting"],
     "author": "Alien Intelligence",
     "license": "MIT",
     "dependencies": {
@@ -50,13 +43,7 @@
     "engines": {
         "node": ">=20.0.0"
     },
-    "files": [
-        "dist",
-        "README.md",
-        "configure.js",
-        "configure.d.ts",
-        "stubs"
-    ],
+    "files": ["dist", "README.md", "configure.js", "configure.d.ts", "stubs"],
     "exports": {
         ".": "./dist/index.js",
         "./commands": "./dist/commands/index.js",
@@ -64,8 +51,6 @@
     },
     "adonisjs": {
         "types": "@alien/adonis-controller-validator",
-        "commands": [
-            "@alien/adonis-controller-validator/commands"
-        ]
+        "commands": ["@alien/adonis-controller-validator/commands"]
     }
 }
