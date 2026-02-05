@@ -22,6 +22,8 @@ npm install -D @anthropic/adonis-controller-validator
 
 ## Usage
 
+### As Standalone CLI
+
 ```bash
 # Run validation
 npx adonis-validator
@@ -31,6 +33,30 @@ npx adonis-validator -p ./my-project
 
 # Output as JSON
 npx adonis-validator --json
+
+# Verbose output
+npx adonis-validator -v
+```
+
+### As AdonisJS Ace Command
+
+Register the command in your `adonisrc.ts`:
+
+```typescript
+{
+  commands: [
+    // ... other commands
+    () => import('@anthropic/adonis-controller-validator/commands')
+  ]
+}
+```
+
+Then run it as an Ace command:
+
+```bash
+node ace validate:controllers
+node ace validate:controllers --verbose
+node ace validate:controllers --json
 ```
 
 ## Configuration

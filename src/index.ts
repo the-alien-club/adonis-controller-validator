@@ -26,3 +26,6 @@ export { runValidation, type RunResult } from "./runner.js";
 
 // Phase 5: Configuration and CLI
 export { createDefaultConfig, loadConfigFile } from "./config.js";
+
+// Ace commands (optional - requires @adonisjs/core)
+export * from "./commands/index.js";
