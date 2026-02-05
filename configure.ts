@@ -4,7 +4,7 @@ import type ConfigureCommand from "@adonisjs/core/commands/configure";
  * Configure hook for the AdonisJS Controller Validator package
  *
  * This function is called when users run:
- *   node ace configure @alien/adonis-controller-validator
+ *   node ace configure @alias3/adonis-controller-validator
  *
  * It automatically registers the validate:controllers command in adonisrc.ts
  */
@@ -16,7 +16,7 @@ export async function configure(command: ConfigureCommand) {
      */
     // biome-ignore lint/suspicious/noExplicitAny: RcFileTransformer type not exported from @adonisjs/core
     await codemods.updateRcFile((transformer: any) => {
-        transformer.addCommand("@alien/adonis-controller-validator/commands");
+        transformer.addCommand("@alias3/adonis-controller-validator/commands");
     });
 
     /**
@@ -27,7 +27,7 @@ export async function configure(command: ConfigureCommand) {
     /**
      * Display success message and next steps
      */
-    command.logger.success("Configured @alien/adonis-controller-validator");
+    command.logger.success("Configured @alias3/adonis-controller-validator");
     command.logger.info("");
     command.logger.info("Next steps:");
     command.logger.info("1. Review config: adonis-validator.config.json");

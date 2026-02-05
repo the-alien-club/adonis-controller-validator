@@ -17,7 +17,7 @@ This tool validates that AdonisJS controller methods follow three critical patte
 ## Installation
 
 ```bash
-npm install -D @alien/adonis-controller-validator
+npm install -D @alias3/adonis-controller-validator
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ npx adonis-validator -v
 Run the configure command to automatically register:
 
 ```bash
-node ace configure @alien/adonis-controller-validator
+node ace configure @alias3/adonis-controller-validator
 ```
 
 This will:
@@ -61,7 +61,7 @@ Alternatively, manually register in your `adonisrc.ts`:
 {
   commands: [
     // ... other commands
-    () => import('@alien/adonis-controller-validator/commands')
+    () => import('@alias3/adonis-controller-validator/commands')
   ]
 }
 ```
@@ -155,7 +155,7 @@ return this.errorResponse(AppErrors.BAD_REQUEST)
 ```yaml
 validate-patterns:
   script:
-    - npm install -D @alien/adonis-controller-validator
+    - npm install -D @alias3/adonis-controller-validator
     - npx adonis-validator
 ```
 
