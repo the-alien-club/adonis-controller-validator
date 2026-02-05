@@ -20,7 +20,7 @@ echo "📦 Package: ${PACKAGE_NAME}"
 echo "Base version from package.json: $TAG"
 
 # For npm, we need to URL-encode the scoped package name
-# @anthropic/adonis-controller-validator -> %40anthropic%2Fadonis-controller-validator
+# @alien/adonis-controller-validator -> %40alien%2Fadonis-controller-validator
 ENCODED_PACKAGE_NAME=$(echo "$PACKAGE_NAME" | sed 's/@/%40/g' | sed 's/\//%2F/g')
 echo "Encoded package name for API: ${ENCODED_PACKAGE_NAME}"
 
@@ -53,7 +53,7 @@ npm run build
 # Create tarball
 npm pack
 
-# Extract npm scope from package name (@anthropic/adonis-controller-validator -> @anthropic)
+# Extract npm scope from package name (@alien/adonis-controller-validator -> @alien)
 NPM_SCOPE=$(echo "$PACKAGE_NAME" | grep -oP '^@[^/]+' || echo "")
 
 if [ -n "$NPM_SCOPE" ]; then

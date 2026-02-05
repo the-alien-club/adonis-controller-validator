@@ -5,7 +5,7 @@
  *
  * @example
  * ```typescript
- * import { runValidation, DEFAULT_CONFIG } from '@anthropic/adonis-controller-validator'
+ * import { runValidation, DEFAULT_CONFIG } from '@alien/adonis-controller-validator'
  *
  * const result = runValidation('./my-project', DEFAULT_CONFIG)
  * console.log(result.violations)
