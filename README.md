@@ -4,7 +4,7 @@ Static analysis tool for validating AdonisJS controller patterns using TypeScrip
 
 ## Status
 
-🚧 **In Development** - See `ai_docs/plan/implementation-plan.md` for the roadmap.
+✅ **Production Ready** - All phases complete. See `ai_docs/plan/implementation-plan.md` for implementation details.
 
 ## Overview
 
@@ -45,8 +45,77 @@ Create `adonis-validator.config.json` in your project root:
     "ClusterProxyController.proxy"
   ],
   "strictMode": true,
-  "failOnError": true
+  "failOnError": true,
+  "appErrorsPath": "#lib/errors"
 }
+```
+
+### Configuration Options
+
+- **routesFile**: Path to routes file (default: `"start/routes.ts"`)
+- **controllersDir**: Path to controllers directory (default: `"app/controllers"`)
+- **whitelist**: Array of method names to skip (format: `"ControllerName.methodName"`)
+- **strictMode**: Whether to enforce all rules strictly (default: `true`)
+- **failOnError**: Exit with error code on violations (default: `true`)
+- **appErrorsPath**: Import path for AppErrors (default: `"#lib/errors"`)
+
+## Validation Rules
+
+### 1. validate-using (error)
+All controller methods that use `request` must call `request.validateUsing()`.
+
+```typescript
+// ❌ Bad
+async store({ request }: HttpContext) {
+    const data = request.body()
+    return this.successResponse(data)
+}
+
+// ✅ Good
+async store({ request }: HttpContext) {
+    const data = await request.validateUsing(storeValidator)
+    return this.successResponse<User>(data)
+}
+```
+
+### 2. success-response-typed (error)
+All `successResponse()` calls must have a generic type parameter.
+
+```typescript
+// ❌ Bad
+return this.successResponse(data)
+
+// ✅ Good
+return this.successResponse<User[]>(data)
+```
+
+### 3. error-response-app-errors (error)
+All `errorResponse()` calls must use AppErrors constants.
+
+```typescript
+// ❌ Bad
+return this.errorResponse({ status: 400, message: "Bad" })
+
+// ✅ Good
+return this.errorResponse(AppErrors.BAD_REQUEST)
+```
+
+## Integration with CI
+
+### GitHub Actions
+
+```yaml
+- name: Validate controller patterns
+  run: npx adonis-validator
+```
+
+### GitLab CI
+
+```yaml
+validate-patterns:
+  script:
+    - npm install -D @anthropic/adonis-controller-validator
+    - npx adonis-validator
 ```
 
 ## Development

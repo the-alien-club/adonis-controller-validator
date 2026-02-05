@@ -23,3 +23,6 @@ export { analyzeController } from "./parsers/controller-analyzer.js";
 // Phase 4: Validation rules
 export { validateMethod } from "./validators/index.js";
 export { runValidation, type RunResult } from "./runner.js";
+
+// Phase 5: Configuration and CLI
+export { createDefaultConfig, loadConfigFile } from "./config.js";

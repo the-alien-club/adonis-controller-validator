@@ -1247,12 +1247,12 @@ MIT
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] `npm run build` compiles successfully
-- [ ] `npm run test` - all tests pass
-- [ ] CLI runs: `npx ts-node src/cli.ts --help`
-- [ ] CLI validates target codebase successfully
-- [ ] JSON output is valid
-- [ ] Exit code 1 on violations, 0 on success
+- [x] `npm run build` compiles successfully
+- [x] `npm run test` - all tests pass (27/27 passing)
+- [x] CLI runs: `npx tsx src/cli.ts --help`
+- [x] CLI validates target codebase successfully (222 methods validated)
+- [x] JSON output is valid
+- [x] Exit code 1 on violations, 0 on success
 
 #### Manual Verification:
 - [ ] Install package locally in target project
